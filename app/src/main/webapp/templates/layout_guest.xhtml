@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<f:view locale="en" contentType="text/html">
+  <h:head>
+    <ui:insert name="header">
+      <ui:include src="header.xhtml" />
+    </ui:insert>
+  </h:head>
+  <h:body>
+	<div id="contentDiv" class="content">
+		    <h:form prependId="false" id="growlForm">
+	    	  <p:growl id="growl" showDetail="false" />
+	    	</h:form>
+            <ui:insert name="content" />
+			<p:confirmDialog global="true">
+			       <p:commandButton value="#{msg.yes}" type="button" styleClass="ui-confirmdialog-yes"
+			       icon="ui-icon-check"/>
+			       <p:commandButton value="#{msg.no}" type="button" styleClass="ui-confirmdialog-no"
+			       icon="ui-icon-close"/>
+			</p:confirmDialog>            
+	</div>
+          <ui:insert name="footer">
+            <ui:include src="footer.xhtml" />
+          </ui:insert>
+  </h:body>
+</f:view>
+</html>
