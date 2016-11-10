@@ -2,6 +2,8 @@ package davimuri.app.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import java.util.Date;
 import java.util.List;
 
@@ -67,7 +69,7 @@ public class User implements Serializable {
 		this.initialDate = initialDate;
 	}
 
-
+	@NotNull
 	public String getPassword() {
 		return this.password;
 	}
@@ -76,7 +78,7 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-
+	@NotNull
 	public String getUsername() {
 		return this.username;
 	}
