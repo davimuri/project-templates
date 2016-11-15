@@ -8,10 +8,15 @@
 		<locale-config>
 			<default-locale>en</default-locale>
 		</locale-config>
+		<el-resolver>org.primefaces.application.exceptionhandler.PrimeExceptionHandlerELResolver</el-resolver>
 		<resource-bundle>
 			<base-name>davimuri.app.messages</base-name>
 			<var>msg</var>
 		</resource-bundle>
 	</application>
+
+    <factory>
+        <exception-handler-factory>org.primefaces.application.exceptionhandler.PrimeExceptionHandlerFactory</exception-handler-factory>
+    </factory>
      
 </faces-config>

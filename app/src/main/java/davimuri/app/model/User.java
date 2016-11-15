@@ -3,6 +3,7 @@ package davimuri.app.model;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import java.util.Date;
 import java.util.List;
@@ -70,6 +71,7 @@ public class User implements Serializable {
 	}
 
 	@NotNull
+	@Size(max=50)
 	public String getPassword() {
 		return this.password;
 	}
@@ -79,6 +81,7 @@ public class User implements Serializable {
 	}
 
 	@NotNull
+	@Size(min=8, max=50)
 	public String getUsername() {
 		return this.username;
 	}

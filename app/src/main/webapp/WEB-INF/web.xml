@@ -16,6 +16,10 @@
        <param-name>primefaces.THEME</param-name>
        <param-value>bootstrap</param-value>
 	</context-param>	
+	<context-param>
+	    <param-name>primefaces.TRANSFORM_METADATA</param-name>
+	    <param-value>true</param-value>
+	</context-param>	
 	<servlet>
 		<servlet-name>facesServlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -25,5 +29,13 @@
 		<servlet-name>facesServlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/error.xhtml</location>
+    </error-page>
+    <error-page>
+        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+        <location>/view_expired.xhtml</location>
+    </error-page>
 
 </web-app>

@@ -22,6 +22,6 @@ public class UserBean {
 	}
 	
 	private String hash(String plainStr) {
-		return "";
+		return plainStr;
 	}
 }
