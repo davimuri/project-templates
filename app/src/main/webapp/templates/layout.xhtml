@@ -14,11 +14,9 @@
   <h:body>
   	<ui:param name="root" value="#{request.contextPath}" />
   	<div id="menuDiv" class="menu">
-	        <h:form id="menuForm">
-	          <ui:insert name="menu">
-	            <ui:include src="menu.xhtml" />
-	          </ui:insert>
-	        </h:form>
+		<ui:insert name="menu">
+			<ui:include src="menu.xhtml" />
+		</ui:insert>
 	</div>
 	<div id="contentDiv" class="content">
 		    <h:form prependId="false" id="growlForm">

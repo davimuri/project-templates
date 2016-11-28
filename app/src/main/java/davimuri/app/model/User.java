@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +15,10 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+@NamedQueries({
+	@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+	@NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username")
+})
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long id;
@@ -26,6 +30,7 @@ public class User implements Serializable {
 	private List<UserRole> userRoles;
 
 	public User() {
+		userRoles = new ArrayList<>();
 	}
 
 
@@ -99,6 +104,13 @@ public class User implements Serializable {
 
 	public void setUserRoles(List<UserRole> userRoles) {
 		this.userRoles = userRoles;
+	}
+
+	public UserRole addRole(Role role) {
+		UserRole userRole = new UserRole();
+		userRole.setRole(role);
+
+		return addUserRole(userRole);
 	}
 
 	public UserRole addUserRole(UserRole userRole) {

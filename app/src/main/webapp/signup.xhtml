@@ -8,16 +8,21 @@
 	xmlns:p="http://primefaces.org/ui">
 <ui:composition template="templates/layout_guest.xhtml">
 	<ui:define name="content">
-		<h:form id="login" onsubmit="document.getElementById('login').action='j_security_check';" prependId="false">
+		<h:form id="signupForm">
 			<div class="ui-fluid">
 				<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-2" layout="grid" styleClass="ui-panelgrid-blank">
-					<p:outputLabel for="j_username" value="Username" />
-					<p:inputText id="j_username" name="j_username" />
+					<p:outputLabel for="username" value="#{msg.username}"/>
+					<p:inputText id="username" value="#{userView.user.username}" required="true"/>
 
-					<p:outputLabel for="j_password" value="Password" />
-					<p:password id="j_password" name="j_password"/>
+					<p:outputLabel for="password1" value="#{msg.password}"/>
+					<p:password id="password1" value="#{userView.user.password}" feedback="true"
+						match="password2" required="true"/>
 
-					<p:commandButton id="submit" value="Login" ajax="false"/>
+					<p:outputLabel for="password2" value="#{msg.password_confirmation}"/>
+					<p:password id="password2" value="#{userView.user.password}" feedback="true"
+						required="true"/>
+
+					<p:commandButton value="#{msg.save}" action="#{userView.save}" ajax="false" />
 				</p:panelGrid>
 			</div>
 		</h:form>

@@ -12,6 +12,7 @@ import java.util.List;
 @Entity
 @NamedQueries({
 	@NamedQuery(name="Role.findAll", query="SELECT r FROM Role r"),
+	@NamedQuery(name="Role.findByName", query="SELECT r FROM Role r WHERE r.name IN :name"),
 	@NamedQuery(name="Role.findByNames", query="SELECT r FROM Role r WHERE r.name IN (:names)")
 })
 public class Role implements Serializable {

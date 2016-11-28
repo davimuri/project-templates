@@ -1,4 +1,4 @@
-package davimuri.app.model.view;
+package davimuri.app.view;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
