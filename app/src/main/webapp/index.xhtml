@@ -8,6 +8,7 @@
 	xmlns:p="http://primefaces.org/ui">
 <ui:composition template="templates/layout_guest.xhtml">
 	<ui:define name="content">
+		<h:outputText rendered="#{param['error'] == 1}" value="Invalid Username or Password" />
 		<h:form id="login" onsubmit="document.getElementById('login').action='j_security_check';" prependId="false">
 			<div class="ui-fluid">
 				<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-2" layout="grid" styleClass="ui-panelgrid-blank">

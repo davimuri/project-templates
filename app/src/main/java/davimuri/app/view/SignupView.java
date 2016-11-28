@@ -9,7 +9,7 @@ import davimuri.app.service.UserBean;
 
 @ManagedBean
 @RequestScoped
-public class UserView {
+public class SignupView {
 
 	@EJB
 	private UserBean userBean;
@@ -19,7 +19,7 @@ public class UserView {
 	 */
 	private User user;
 
-	public UserView() {
+	public SignupView() {
 		user = new User();
 	}
 	

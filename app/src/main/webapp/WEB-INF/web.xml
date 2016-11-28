@@ -90,7 +90,7 @@
 		<realm-name>app</realm-name>
 		<form-login-config>
 			<form-login-page>/index.xhtml</form-login-page>
-			<form-error-page>/error.xhtml</form-error-page>
+			<form-error-page>/index.xhtml?faces-redirect=true&amp;error=1</form-error-page>
 		</form-login-config>
 	</login-config>
 	<!--Defining type of authenitcation mechanism-->

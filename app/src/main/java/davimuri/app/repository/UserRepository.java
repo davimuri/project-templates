@@ -58,4 +58,13 @@ public class UserRepository {
 			.setParameter("names", roleNames)
 			.getResultList();
 	}
+	
+	/**
+	 * Returns all users in database
+	 * @return
+	 */
+	public List<User> findAll() {
+		return entityManager.createNamedQuery("User.findAll", User.class)
+				.getResultList();
+	}
 }

@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
  */
 public class Messages {
 
-    private static final String PROPERTIES_FILE = "davimuri.app.messages.properties";
+    private static final String PROPERTIES_FILE = "davimuri.app.messages";
 
     private static final Logger logger = LoggerFactory.getLogger(Messages.class);
 

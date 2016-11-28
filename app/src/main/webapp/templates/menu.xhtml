@@ -39,6 +39,10 @@
 					icon="ui-icon ui-icon-folder-open" />
 			</p:submenu>
 
+		<p:menuitem value="#{msg['change.password']}"
+					url="/pages/user/change_password.xhtml"
+					icon="fa fa-edit" />
+
 		<f:facet name="options">
 			<h:outputText rendered="#{request.getUserPrincipal() != null}"
 						  value="#{msg['hello']} #{request.getUserPrincipal().getName()}"
@@ -46,9 +50,6 @@
 			<a href="#{request.getContextPath()}/logout" style="margin-right:10px">
 				<h:outputText value="#{msg['logout']}" />
 			</a>
-			<p:menuitem value="#{msg['change.password']}"
-						url="/pages/user/change_password.xhtml"
-						icon="fa fa-edit" />
 		</f:facet>
 	</p:menubar>
 </ui:composition>

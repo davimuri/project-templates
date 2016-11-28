@@ -1,7 +1,7 @@
 package davimuri.app.service;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -9,7 +9,6 @@ import javax.ejb.Stateless;
 import davimuri.app.enums.RoleEnum;
 import davimuri.app.model.Role;
 import davimuri.app.model.User;
-import davimuri.app.model.UserRole;
 import davimuri.app.repository.RoleRepository;
 import davimuri.app.repository.UserRepository;
 import davimuri.app.util.HashUtil;
@@ -47,6 +46,14 @@ public class UserBean {
 		userRepository.updatePassword(username, password);
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
+	public List<User> find() {
+		return userRepository.findAll();
+	}
+	
 	/**
 	 * Hashes the password
 	 * @param plainStr
