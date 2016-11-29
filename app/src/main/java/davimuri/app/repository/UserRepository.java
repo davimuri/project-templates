@@ -1,6 +1,8 @@
 package davimuri.app.repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -58,7 +60,29 @@ public class UserRepository {
 			.setParameter("names", roleNames)
 			.getResultList();
 	}
-	
+/*
+	public List<User> find(User filter) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("SELECT u FROM User u ");
+
+		Map<String, Object> params = new HashMap<>();
+
+		if (filter.getActive() != null) {
+			sb.append(" u.active = :active ");
+			params.put("active", filter.getActive());
+		}
+		if (filter.getInitialDate() != null) {
+			sb.append(" u.initialDate >= :initialDate ");
+			params.put("initialDate", filter.getInitialDate());
+		}
+		if (filter.getFinalDate() != null) {
+			sb.append(" u.finalDate <= :finalDate ");
+			params.put("finalDate", filter.getFinalDate());
+		}
+
+		entityManager.createQuery("SELECT u FROM User u ")
+	}
+*/
 	/**
 	 * Returns all users in database
 	 * @return

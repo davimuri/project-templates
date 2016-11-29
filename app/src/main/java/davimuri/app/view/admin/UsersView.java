@@ -15,31 +15,41 @@ import org.primefaces.event.RowEditEvent;
 
 import davimuri.app.model.User;
 import davimuri.app.service.UserBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @ManagedBean
 @ViewScoped
-public class UsersView implements Serializable{
+public class UsersView implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private static final Logger logger = LoggerFactory.getLogger(UsersView.class);
+
 	@EJB
 	private UserBean userBean;
 	
 	private List<User> users;
-	
-	
+
+	private User user;
+
+	public String search() {
+		return null;
+	}
+
 	public void loadUsers() {
 		users = userBean.find();
 	}
 
 
 	public List<User> getUsers() {
-		if (users == null) {
-			loadUsers();
-		}
+		logger.debug("getUsers()");
+		logger.debug("loading users...");
+		loadUsers();
+		logger.debug("users loaded {}", users.size());
 		return users;
 	}
 
@@ -67,4 +77,12 @@ public class UsersView implements Serializable{
             FacesContext.getCurrentInstance().addMessage(null, msg);
         }
     }
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 }

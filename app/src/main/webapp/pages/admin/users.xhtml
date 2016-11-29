@@ -8,8 +8,24 @@
 	xmlns:p="http://primefaces.org/ui">
 <ui:composition template="../../templates/layout.xhtml">
 	<ui:define name="content">
+		<h:form id="userSearchForm">
+			<div class="ui-fluid">
+				<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-2" layout="grid" styleClass="ui-panelgrid-blank">
+					<p:outputLabel for="active" value="#{msg.active}"/>
+					<p:inputText id="active" value="#{usersView.user.active}" />
+
+					<p:outputLabel for="initialDate" value="#{msg['initial.date']}"/>
+					<p:calendar id="initialDate" value="#{usersView.user.initialDate}" navigator="true" pattern="#{msg['date.pattern']}" />
+
+					<p:outputLabel for="finalDate" value="#{msg['final.date']}"/>
+					<p:calendar id="finalDate" value="#{usersView.user.finalDate}" navigator="true" pattern="#{msg['date.pattern']}" />
+
+					<p:commandButton value="#{msg.search}" action="#{usersView.search}" />
+				</p:panelGrid>
+			</div>
+		</h:form>
 		<h:form id="userTableForm">
-			<p:dataTable id="users" var="user" value="#{usersView.users}"
+			<p:dataTable id="usersTable" var="user" value="#{usersView.users}"
 				editable="true" style="margin-bottom:20px">
 				
 				<f:facet name="header">

@@ -7,12 +7,15 @@
             <!-- value="create" to build a new database on each run; value="update" to modify an existing database; value="create-drop" means the same as "create" but also drops tables when Hibernate closes; value="validate" makes no changes to the database -->
             <property name="hibernate.hbm2ddl.auto" value="validate"/>
             <property name="hibernate.connection.charSet" value="UTF-8"/>
-		<!-- 
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/appdb" />
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.user" value="appuser" />
-			<property name="javax.persistence.jdbc.password" value="appuser123" />
-		 -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.archive.autodetection" value="class"/>
+			<!--
+                <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/appdb" />
+                <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+                <property name="javax.persistence.jdbc.user" value="appuser" />
+                <property name="javax.persistence.jdbc.password" value="appuser123" />
+             -->
 		</properties>
 	</persistence-unit>
 </persistence>
