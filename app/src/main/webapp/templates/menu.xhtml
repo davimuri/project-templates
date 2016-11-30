@@ -39,6 +39,9 @@
 					icon="ui-icon ui-icon-folder-open" />
 			</p:submenu>
 
+		<p:menuitem rendered="#{request.isUserInRole('ADMINISTRATOR')}" value="#{msg['users']}"
+					url="/pages/admin/users.xhtml" icon="fa fa-user" />
+
 		<p:menuitem value="#{msg['change.password']}"
 					url="/pages/user/change_password.xhtml"
 					icon="fa fa-edit" />

@@ -3,10 +3,9 @@ package davimuri.app.view.admin;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.annotation.ManagedBean;
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
@@ -36,7 +35,16 @@ public class UsersView implements Serializable {
 
 	private User user;
 
+	public UsersView() {
+		user = new User();
+	}
+
 	public String search() {
+		logger.debug("search()");
+		logger.debug("loading users...");
+		loadUsers();
+		logger.debug("users loaded {}", users.size());
+
 		return null;
 	}
 
