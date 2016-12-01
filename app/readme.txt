@@ -41,18 +41,19 @@ Add the following:
 	<authentication>
 		<login-module code="Database" flag="required">
 			<module-option name="dsJndiName" value="java:/datasources/appdb"/>
-			<module-option name="rolesQuery" value="SELECT r.name, 'Roles' FROM role r JOIN user_role ur ON ur.role_id = r.id JOIN user u ON u.id = ur.user_id WHERE u.username = ?"/>
+			<module-option name="rolesQuery" value="SELECT ur.role, 'Roles' FROM user_role ur JOIN user u ON u.id = ur.user_id WHERE u.username = ?"/>
 			<module-option name="principalsQuery" value="SELECT u.password FROM user u WHERE u.username = ?"/>
 		</login-module>
 	</authentication>
 	<authorization>
 		<policy-module code="Database" flag="required">
-			<module-option name="dsJndiName" value="java:/datasources/appdb?autoReconnect=true&amp;useSSL=false"/>
-			<module-option name="rolesQuery" value="SELECT r.name, 'Roles' FROM role r JOIN user_role ur ON ur.role_id = r.id JOIN user u ON u.id = ur.user_id WHERE u.username = ?"/>
+			<module-option name="dsJndiName" value="java:/datasources/appdb"/>
+			<module-option name="rolesQuery" value="SELECT ur.role, 'Roles' FROM user_role ur JOIN user u ON u.id = ur.user_id WHERE u.username = ?"/>
 			<module-option name="principalsQuery" value="SELECT u.password FROM user u WHERE u.username = ?"/>
 		</policy-module>
 	</authorization>
 </security-domain>
+
 
 3. Logs
 --------

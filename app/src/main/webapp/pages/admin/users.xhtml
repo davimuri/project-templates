@@ -17,8 +17,9 @@
 
 					<p:outputLabel for="role" value="#{msg.role}"/>
 					<p:selectOneMenu id="role" value="#{usersView.role}">
-						<f:selectItem itemLabel="Select One" itemValue="" />
-						<f:selectItems value="#{selectOneMenuView.cars}" />
+						<f:selectItem itemLabel="#{msg['select.one']}" itemValue="" />
+						<f:selectItems value="#{applicationView.roles}" var="role"
+									   itemValue="#{role}" itemLabel="#{msg['enum.' += role.name()]}" />
 					</p:selectOneMenu>
 
 					<p:outputLabel for="initialDate" value="#{msg['initial.date']}"/>

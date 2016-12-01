@@ -7,9 +7,7 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import davimuri.app.enums.RoleEnum;
-import davimuri.app.model.Role;
 import davimuri.app.model.User;
-import davimuri.app.repository.RoleRepository;
 import davimuri.app.repository.UserRepository;
 import davimuri.app.util.HashUtil;
 
@@ -19,9 +17,6 @@ public class UserBean {
 	@EJB
 	private UserRepository userRepository;
 
-	@EJB
-	private RoleRepository roleRepository;
-
 	/**
 	 * Creates a user with USER role
 	 * @param user
@@ -30,9 +25,7 @@ public class UserBean {
 		user.setActive(true);
 		user.setInitialDate(Calendar.getInstance().getTime());
 		user.setPassword(user.getPassword());
-
-		Role role = roleRepository.findRole(RoleEnum.USER);
-		user.addRole(role);
+		user.addRole(RoleEnum.USER);
 
 		userRepository.create(user);
 	}
@@ -50,8 +43,8 @@ public class UserBean {
 	 * 
 	 * @return
 	 */
-	public List<User> find() {
-		return userRepository.findAll();
+	public List<User> findByFilters(User user, RoleEnum roleEnum) {
+		return userRepository.findByFilters(user, roleEnum);
 	}
 	
 	/**

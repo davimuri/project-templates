@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
+import davimuri.app.enums.RoleEnum;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 
@@ -35,6 +36,8 @@ public class UsersView implements Serializable {
 
 	private User user;
 
+	private RoleEnum role;
+
 	public UsersView() {
 		user = new User();
 	}
@@ -42,22 +45,15 @@ public class UsersView implements Serializable {
 	public String search() {
 		logger.debug("search()");
 		logger.debug("loading users...");
-		loadUsers();
+		users = userBean.findByFilters(user, role);
 		logger.debug("users loaded {}", users.size());
 
 		return null;
 	}
 
-	public void loadUsers() {
-		users = userBean.find();
-	}
 
 
 	public List<User> getUsers() {
-		logger.debug("getUsers()");
-		logger.debug("loading users...");
-		loadUsers();
-		logger.debug("users loaded {}", users.size());
 		return users;
 	}
 
@@ -92,5 +88,13 @@ public class UsersView implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public RoleEnum getRole() {
+		return role;
+	}
+
+	public void setRole(RoleEnum role) {
+		this.role = role;
 	}
 }

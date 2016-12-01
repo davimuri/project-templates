@@ -1,5 +1,7 @@
 package davimuri.app.model;
 
+import davimuri.app.enums.RoleEnum;
+
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -14,7 +16,7 @@ import javax.persistence.*;
 public class UserRole implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long id;
-	private Role role;
+	private RoleEnum role;
 	private User user;
 
 	public UserRole() {
@@ -32,13 +34,12 @@ public class UserRole implements Serializable {
 	}
 
 
-	//bi-directional many-to-one association to Role
-	@ManyToOne
-	public Role getRole() {
+	@Enumerated(EnumType.STRING)
+	public RoleEnum getRole() {
 		return this.role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(RoleEnum role) {
 		this.role = role;
 	}
 

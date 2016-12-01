@@ -30,21 +30,6 @@ ENGINE = InnoDB;
 
 CREATE UNIQUE INDEX `username_UNIQUE` ON `user` (`username` ASC) ;
 
-
--- -----------------------------------------------------
--- Table `role`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `role` ;
-
-CREATE  TABLE IF NOT EXISTS `role` (
-  `id` BIGINT NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(50) NOT NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
-
-CREATE UNIQUE INDEX `name_UNIQUE` ON `role` (`name` ASC) ;
-
-
 -- -----------------------------------------------------
 -- Table `user_role`
 -- -----------------------------------------------------
@@ -52,22 +37,15 @@ DROP TABLE IF EXISTS `user_role` ;
 
 CREATE  TABLE IF NOT EXISTS `user_role` (
   `id` BIGINT NOT NULL AUTO_INCREMENT ,
-  `role_id` BIGINT NOT NULL ,
+  `role` VARCHAR(50) NOT NULL ,
   `user_id` BIGINT NOT NULL ,
   PRIMARY KEY (`id`) ,
-  CONSTRAINT `fk_user_role_role`
-    FOREIGN KEY (`role_id` )
-    REFERENCES `role` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_role_user1`
     FOREIGN KEY (`user_id` )
     REFERENCES `user` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-CREATE INDEX `fk_user_role_role_idx` ON `user_role` (`role_id` ASC) ;
 
 CREATE INDEX `fk_user_role_user1_idx` ON `user_role` (`user_id` ASC) ;
 

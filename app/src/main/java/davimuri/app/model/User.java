@@ -1,5 +1,7 @@
 package davimuri.app.model;
 
+import davimuri.app.enums.RoleEnum;
+
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -106,7 +108,7 @@ public class User implements Serializable {
 		this.userRoles = userRoles;
 	}
 
-	public UserRole addRole(Role role) {
+	public UserRole addRole(RoleEnum role) {
 		UserRole userRole = new UserRole();
 		userRole.setRole(role);
 
